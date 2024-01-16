@@ -41,6 +41,13 @@ rm -rf openwrt-packages/!(luci-app-turboacc|shortcut-fe|dnsforwarder)
 cp -r openwrt-packages/{luci-app-turboacc,shortcut-fe,dnsforwarder} package/
 rm -rf openwrt-packages
 
+git clone https://github.com/coolsnowwolf/luci #tree/master/applications/luci-app-autoreboot
+shopt -s extglob
+rm -rf luci/applications/!(luci-app-autoreboot)
+cp -r luci/applications/luci-app-autoreboot package/
+rm -rf luci
+
+
 #删除feeds自带mosdns、v2ray-geodata
 rm -rf ./feeds/packages/net/mosdns
 rm -rf feeds/packages/net/v2ray-geodata
